@@ -10,7 +10,7 @@ body{
    background-image: linear-gradient(to left,#eb0b0b 0%, #180472 100%);
 
 }
-#chronometre{
+.chrono{
      padding: 100px; 
     border-radius: 30px;
     background-color: white;
@@ -23,11 +23,14 @@ body{
     color: #eb0b0b;
 
 }
-#button{
+button{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
    
 }
+
 button{
     font-size: 18px;
     width: 100px;
@@ -40,4 +43,12 @@ button{
     color:  white;
 
 
+}
+span{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+  
+    align-items: center;
+    justify-content: center;
 }

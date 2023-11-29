@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chronometre</title>
     <link rel="stylesheet" href="chrono.css">
-    
+    <title>Document</title>
 </head>
 <body>
-    <div id="chronometre">
+    <div class="chrono">
+        <span id="H">00 :</span>
+        <span id="M">00 :</span>
+        <span id="S">00 :</span>
+        <span id="MS">00</span>
 
-       <h1 id="chrono"> 00:00:00 </h1>
-       <div id="button">
-       <button id="start">Start</button>
-       <button id="stop">Stop</button>
-       <button id="reset">Reset</button>
-    </div>
-   </div>
-   <script src="chrono.js"></script>
+   
+    <button id="start" onclick="start()">Start</button>
+    <button id="stop" onclick="stop()">Stop</button>
+    <button id="reset" onclick="reset()">Reset</button>
+
+</div>
+    <script src="chrono.js"></script>
+
     
 </body>
 </html>

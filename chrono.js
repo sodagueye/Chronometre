@@ -1,75 +1,61 @@
-// recuperer les element 
+let H = 0;
+let M = 0;
+let S = 0;
+let MS = 0;
 
-let  zero = document.getElementById("chrono");
-let demare = document.getElementById("start");
-let pause  = document.getElementById("stop");
-let resets  = document.getElementById("reset");
+let intervalMillSeconde;
+let intervalSeconde;
+let intervalMinute;
+let intervalHeure;
+function Millseconde(){
+    if(MS ==999){
+        MS = 0;
 
-
-// declaration des variable
-let heures = 0;
-let minutes = 0;
-let secondes = 0;
-let timeout;
-
-let estArrete = true;
-const demarrer = () =>{
-    if(estArrete){
-        estArrete = false;
-           defilerTemps();
     }
-};
-
-
-const arrater = () =>{
-    if(!estArrete){
-        estArrete = true;
-        clearTimeout(timeout);
-    }
+   MS += 1
+    document.getElementById("MS").innerHTML=MS 
 }
-const defilerTemps = () =>{
-    if(estArrete) return;
-
-    secondes =parseInt(  secondes);
-    minutes = parseInt(minutes);
-    heures = parseInt(heures)
-    secondes++;
-    if(secondes ==60){
-        minutes ++;
-        secondes = 0;
+ function Seconde(){
+    if(S==60){
+        S=0
     }
-    if(minutes ==60){
-       heures ++;
-        minutes = 0;
+    S +=1
+    document.getElementById("S").innerHTML=S 
+ }
+ function Minute(){
+    if(M== 59){
+        M= 0
     }
-    //  affichage
-    if(secondes < 10){
-        secondes = '0'+ secondes
+     M+=1
+    document.getElementById("M").innerHTML=M 
+ }
+ function Heures(){
+    if(H==23){
+        H = 0
     }
-    if(minutes < 10){
-        minutes= '0'+ minutes
-    }
-    if(heures < 10){
-        heures = '0'+ heures
-    }
-    chrono.textContent =`${heures}: ${minutes}:${secondes}`;
-
-  timeout =  setTimeout( defilerTemps, 1000);
-
-
-
-};
-const reset = () =>{
-    chrono.textContent = "00:00:00";
-    estArrete = true;
-    heures = 0;
-    minutes = 0;
-    secondes = 0;
-    clearTimeout(timeout);
-};
- demare.addEventListener('click' ,demarrer);
- pause.addEventListener('click' ,arrater);
- resets.addEventListener('click' ,reset);
-
-
-
+     H +=1
+    document.getElementById("H").innerHTML=H 
+ }
+ function start(){
+ intervalHeure = setInterval(Heures ,360000);
+ intervalMinute = setInterval(Minute ,60000);
+ intervalSeconde = setInterval(Seconde ,1000);
+ intervalMillSeconde = setInterval(Millseconde ,1);
+ }
+ function stop(){
+    clearInterval(intervalMillSeconde)
+    clearInterval(intervalSeconde)
+    clearInterval(intervalMinute)
+    clearInterval(intervalHeure)
+ }
+ function reset(){
+    stop();
+    H = 0
+    M = 0
+    S = 0
+    MS = 0
+    document.getElementById("H").innerHTML ="00 :"
+    document.getElementById("M").innerHTML ="00 :"
+    document.getElementById("S").innerHTML ="00 :"
+    document.getElementById("MS").innerHTML ="00"
+ }
